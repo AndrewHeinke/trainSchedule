@@ -1,79 +1,28 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-.navbar-default .navbar-toggle {
-  border: none;
-}
-
 .col-centered{
     float: none;
     margin: 0 auto;
 }
 
-.left {
-  text-align: left;
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #1F271B;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
 }
 
-.right {
-  text-align: right;
-}
-
-.navbar-default .navbar-brand {
-  font-weight: bold;
-  font-size: 22px;
-  color: #cccccc;
-}
-
-.navbar-default .navbar-brand:hover {
-  color: #3498db;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: #cccccc;
-}
-
-.navbar-default .navbar-nav>li>a:hover {
-    color: #3498db;
-}
-
-.row {
-  margin-top: 15px;
-}
-
-#gitLink {
-  color: #f1c40f;
-}
-
-.navbar {
-  margin-bottom: 0px;
-}
-
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #e7e7e7;
-    text-align: left;
-}
-
-footer.navbar-default.navbar-fixed-bottom
- {
-      background:#363C3E;
-      color:white;
-      padding:1em 0;
- }
- footer.navbar-default.navbar-fixed-bottom p
- {
-      margin:0;
- }
-
-@media only screen and (max-width : 767px) {
-   footer.navbar-default.navbar-fixed-bottom p {
-     text-align: center;
-   }
-   .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-       border-color: #e7e7e7;
-       text-align: left;
-       font-size: 20px;
-       color: #333;
-   }
+a {
+  color: #EE4266;
 }
