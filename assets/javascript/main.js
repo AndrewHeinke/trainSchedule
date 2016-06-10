@@ -1,4 +1,4 @@
-var trainData = new Firebase("https://train-tracker-66cbf.firebaseio.com/");
+var trainData = new Firebase('https://train-tracker-66cbf.firebaseio.com');
 
 
 // Clears all form input fields
@@ -39,13 +39,11 @@ $("#addTrainBtn").on("click", function(){
   var nextTrain = moment().add(tMinutesTillTrain, "minutes");
   console.log("Arrival Time: " + moment(nextTrain).format("HH:mm"));
 
-  // Object to hold train data
   var newTrain = {
 		name: trainName,
 		destination: trainDestination,
 		start: firstTrain,
-		frequency: trainFrequency,
-    minsAway: minutesAway
+		frequency: trainFrequency
 	};
 
   // Upload train data to database
@@ -67,8 +65,7 @@ $("#addTrainBtn").on("click", function(){
 	var trainDestination = snapshot.val().role;
 	var firstTrain = snapshot.val().start;
 	var trainFrequency = snapshot.val().rate;
-  var minutesAway = snapshot.val().rate;
 
-    $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + firstTrain + "</td><td>" + trainFrequency + "</td><td>" + minutesAway + "</td>");
+    $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + firstTrain + "</td><td>" + trainFrequency + "</td>");
 
   });
