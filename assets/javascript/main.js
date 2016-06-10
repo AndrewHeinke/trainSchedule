@@ -1,6 +1,5 @@
 var trainData = new Firebase('https://train-tracker-66cbf.firebaseio.com');
 
-
 // Clears all form input fields
 function clearInputs() {
   $("#trainNameInput").val("");
@@ -8,7 +7,6 @@ function clearInputs() {
   $("#firstTrainTimeInput").val("");
   $("#frequencyInput").val("");
 }
-
 
 // Button for adding trains
 $("#addTrainBtn").on("click", function(){
@@ -49,7 +47,8 @@ $("#addTrainBtn").on("click", function(){
   // Upload train data to database
   trainData.push(newTrain);
 
-  swal({title: "Chooo Choo!",   text: "You have successfully added a train!",   type: "success", confirmButtonColor: "#2ecc71",   confirmButtonText: "Okay", closeOnConfirm: true });
+  // alert successful add
+  swal({title: "Chooo Choo!",   text: "You have successfully added a train!", type: "success", confirmButtonColor: "#2ecc71",   confirmButtonText: "Okay", closeOnConfirm: true });
 
   clearInputs();
 	return false;
@@ -62,10 +61,10 @@ $("#addTrainBtn").on("click", function(){
 
 	// Store everything into a variable.
 	var trainName = snapshot.val().name;
-	var trainDestination = snapshot.val().role;
+	var trainDestination = snapshot.val().destination;
 	var firstTrain = snapshot.val().start;
-	var trainFrequency = snapshot.val().rate;
+	var trainFrequency = snapshot.val().frequency;
 
-    $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + firstTrain + "</td><td>" + trainFrequency + "</td>");
+  $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + firstTrain + "</td></tr>");
 
   });
