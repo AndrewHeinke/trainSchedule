@@ -48,7 +48,7 @@ $("#addTrainBtn").on("click", function(){
   trainData.push(newTrain);
 
   // alert successful add
-  swal({title: "Chooo Choo!",   text: "You have successfully added a train!", type: "success", confirmButtonColor: "#2ecc71",   confirmButtonText: "Okay", closeOnConfirm: true });
+  swal({title: "Chooo Choo!", text: "You have successfully added a train!", type: "success", confirmButtonColor: "#2ecc71",   confirmButtonText: "Okay", closeOnConfirm: true });
 
   clearInputs();
 	return false;
