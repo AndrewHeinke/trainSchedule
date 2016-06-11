@@ -43,28 +43,19 @@ trainData.on("child_added", function(snapshot, prevChildKey){
 	var firstTrain = snapshot.val().start;
 	var trainFrequency = snapshot.val().frequency;
 
-  // // Get current time to calc minutes away
-  var currentTime = moment().format("HH:mm");
-  console.log("Current Time: " + currentTime);
-
   var firstMoment = moment(firstTrain, "HH:mm").subtract(1, "years");
-  console.log("First Moment: " + firstMoment);
 
   // calc difference in times
   var diffTime = moment().diff(moment(firstMoment), "minutes");
-  console.log("Difference in time: " + diffTime);
 
   // Time apart
   var tRemainder = diffTime % trainFrequency;
-  console.log(tRemainder);
 
   // Minutes Until Train
   var tMinutesTillTrain = trainFrequency - tRemainder;
-  console.log("Minutes Till Train: " + tMinutesTillTrain);
 
   // Next Train
   var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-  console.log("Arrival Time: " + moment(nextTrain).format("HH:mm"));
 
   // Append information to html table
   $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
