@@ -1,28 +1,45 @@
 .col-centered{
-    float: none;
-    margin: 0 auto;
+  float: none;
+  margin: 0 auto;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-footer {
-  position: absolute;
-  bottom: 0;
+  background-image: url(../images/train-bg.jpg);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #1F271B;
-  line-height: 60px;
-  text-align: center;
+  height: 100%;
+}
+
+footer {
   color: #fff;
 }
 
-a {
-  color: #EE4266;
+footer a {
+  color: #fff;
+}
+
+footer a:hover {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+.jumbotron {
+  background: #2c3e50;
+  padding: 5px;
+}
+
+.jumbotron h2 {
+  color: #FFFFFF;
+  margin: 5px;
+}
+
+.btn-primary {
+  background: #f1c40f;
+  border-radius: 7px;
+  padding: 10px 40px;
+  border: none;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
 }

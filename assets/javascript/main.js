@@ -17,26 +17,6 @@ $("#addTrainBtn").on("click", function(){
 	var firstTrain = moment($("#firstTrainTimeInput").val().trim(), "HH:mm").format("HH:mm");
 	var trainFrequency = $("#frequencyInput").val().trim();
 
-  // // Get current time to calc minutes away
-  var currentTime = moment().format("HH:mm");
-  console.log("Current Time: " + currentTime);
-
-  // calc difference in times
-  var diffTime = moment().diff(moment(firstTrain), "minutes");
-  console.log("Difference in time: " + diffTime);
-
-  // Time apart
-  var tRemainder = diffTime % trainFrequency;
-  console.log(tRemainder);
-
-  // Minutes Until Train
-  var tMinutesTillTrain = trainFrequency - tRemainder;
-  console.log("Minutes Till Train: " + tMinutesTillTrain);
-
-  // Next Train
-  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-  console.log("Arrival Time: " + moment(nextTrain).format("HH:mm"));
-
   var newTrain = {
 		name: trainName,
 		destination: trainDestination,
@@ -55,9 +35,7 @@ $("#addTrainBtn").on("click", function(){
 
   });
 
-  trainData.on("child_added", function(snapshot, prevChildKey){
-
-	console.log(snapshot.val());
+trainData.on("child_added", function(snapshot, prevChildKey){
 
 	// Store everything into a variable.
 	var trainName = snapshot.val().name;
@@ -65,6 +43,30 @@ $("#addTrainBtn").on("click", function(){
 	var firstTrain = snapshot.val().start;
 	var trainFrequency = snapshot.val().frequency;
 
-  $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + firstTrain + "</td></tr>");
+  // // Get current time to calc minutes away
+  var currentTime = moment().format("HH:mm");
+  console.log("Current Time: " + currentTime);
 
-  });
+  var firstMoment = moment(firstTrain, "HH:mm").subtract(1, "years");
+  console.log("First Moment: " + firstMoment);
+
+  // calc difference in times
+  var diffTime = moment().diff(moment(firstMoment), "minutes");
+  console.log("Difference in time: " + diffTime);
+
+  // Time apart
+  var tRemainder = diffTime % trainFrequency;
+  console.log(tRemainder);
+
+  // Minutes Until Train
+  var tMinutesTillTrain = trainFrequency - tRemainder;
+  console.log("Minutes Till Train: " + tMinutesTillTrain);
+
+  // Next Train
+  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+  console.log("Arrival Time: " + moment(nextTrain).format("HH:mm"));
+
+  // Append information to html table
+  $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + trainFrequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+
+});
