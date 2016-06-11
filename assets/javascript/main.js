@@ -8,7 +8,12 @@ function clearInputs() {
   $("#frequencyInput").val("");
 }
 
-// Form Validation 
+// Refresh Data Every Minute
+setInterval(function(){
+    location.reload();
+  }, 60000);
+
+  
 
 
 // Button for adding trains
