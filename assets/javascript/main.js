@@ -8,6 +8,9 @@ function clearInputs() {
   $("#frequencyInput").val("");
 }
 
+// Form Validation 
+
+
 // Button for adding trains
 $("#addTrainBtn").on("click", function(){
 
